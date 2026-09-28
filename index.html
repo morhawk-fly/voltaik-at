@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voltaik PV-Großprojekte</title>
+<meta name="description" content="Photovoltaik und Stromspeicher für Gewerbe, Industrie, Landwirtschaft und Freiflächen in Österreich – geplant, geliefert und gebaut von der Voltaik Holzner &amp; Krenn GmbH.">
+<!-- Schriften bewusst ohne Google Fonts: Fernladen von Google-Servern ist in AT/DE datenschutzrechtlich heikel. Systemschriften, keine Einbindung Dritter. -->
+<style>
+:root{
+  --navy:#1E316A; --navy-2:#2A4088; --violett:#B24FD6; --violett-hell:#D36BF1;
+  --bg:#F4F6FA; --flaeche:#FFFFFF; --tinte:#131A2E; --grau:#55607A; --linie:#D9DFEA;
+  --hero-bg:#1E316A; --hero-tinte:#F4F6FA; --hero-grau:#B9C3DD;
+  --platzhalter:#8A5A00; --platzhalter-bg:#FFF4D6;
+  color-scheme:light;
+  --display:"Bahnschrift","DIN Alternate","Roboto Condensed","Arial Narrow",system-ui,sans-serif;
+  --text:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","SF Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1224; --flaeche:#151D36; --tinte:#E9EDF6; --grau:#A4AFC8; --linie:#27324F;
+    --hero-bg:#101A3D; --violett:#D36BF1; --platzhalter:#FFD37A; --platzhalter-bg:#3A2E10; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1224; --flaeche:#151D36; --tinte:#E9EDF6; --grau:#A4AFC8; --linie:#27324F;
+  --hero-bg:#101A3D; --violett:#D36BF1; --platzhalter:#FFD37A; --platzhalter-bg:#3A2E10; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--tinte);font:17px/1.6 var(--text)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.01em}
+h3{font-size:1.2rem}
+p{margin:0;max-width:65ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violett-hell);outline-offset:2px}
+.eyebrow{font:600 .78rem/1 var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--violett)}
+.ph{display:inline-block;font:600 .72rem/1.3 var(--mono);color:var(--platzhalter);background:var(--platzhalter-bg);border:1px dashed currentColor;border-radius:4px;padding:.15em .45em;vertical-align:middle}
+
+/* Kopfleiste */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hero-bg);color:var(--hero-tinte);border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.marke{font:700 1.15rem/1 var(--display);letter-spacing:.02em;text-decoration:none}
+.marke small{display:block;font:500 .7rem/1.4 var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--hero-grau)}
+.nav{display:flex;gap:20px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--hero-grau)}
+.nav a:hover{color:var(--hero-tinte)}
+.knopf{display:inline-block;background:var(--violett-hell);color:#1A0B24;font-weight:700;text-decoration:none;border:0;border-radius:6px;padding:.7em 1.15em;font-size:.95rem;cursor:pointer}
+.knopf:hover{background:#E08BF6}
+.knopf.leise{background:transparent;color:var(--hero-tinte);border:1px solid rgba(255,255,255,.35)}
+@media (max-width:760px){.nav{display:none}}
+
+/* Hero */
+.hero{background:var(--hero-bg);color:var(--hero-tinte);padding-block:56px 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);font-weight:700;letter-spacing:-.015em}
+.hero p{color:var(--hero-grau);font-size:1.12rem;margin-top:18px}
+.hero .aktionen{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.kennzahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);margin-top:40px;border-top:1px solid rgba(255,255,255,.12)}
+.kennzahlen div{background:var(--hero-bg);padding:18px 16px 22px 0}
+.kennzahlen b{display:block;font:700 1.9rem/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--hero-tinte)}
+.kennzahlen span{font-size:.85rem;color:var(--hero-grau)}
+.dach{width:100%;height:auto;display:block}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.dach{max-width:520px}}
+
+section{padding-block:72px}
+.kopf{display:grid;gap:12px;margin-bottom:32px}
+
+/* Leistungen */
+.leistungen{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--linie);border:1px solid var(--linie)}
+.leistung{background:var(--flaeche);padding:24px 20px;display:grid;gap:10px;align-content:start}
+.leistung .masz{font:600 .8rem/1 var(--mono);color:var(--violett)}
+.leistung p{font-size:.95rem;color:var(--grau)}
+
+/* Warum */
+.warum{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px 36px}
+.warum div{border-top:2px solid var(--navy);padding-top:14px;display:grid;gap:6px}
+:root[data-theme="dark"] .warum div{border-top-color:var(--violett)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warum div{border-top-color:var(--violett)}}
+.warum p{color:var(--grau);font-size:.97rem}
+
+/* Ablauf */
+.ablauf{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;counter-reset:s}
+.ablauf li{counter-increment:s;display:grid;gap:8px;align-content:start}
+.ablauf li::before{content:counter(s);font:700 1rem/1 var(--mono);color:var(--flaeche);background:var(--navy);width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center}
+.ablauf b{font-family:var(--display);font-size:1.05rem}
+.ablauf span{font-size:.92rem;color:var(--grau)}
+
+/* Rechnung */
+.rechnung{display:grid;grid-template-columns:1fr 1fr;gap:32px;background:var(--flaeche);border:1px solid var(--linie);padding:28px}
+.rechnung dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-variant-numeric:tabular-nums}
+.rechnung dt{color:var(--grau)}
+.rechnung dd{margin:0;font-family:var(--mono);font-weight:600}
+@media (max-width:760px){.rechnung{grid-template-columns:1fr}}
+
+/* Referenzen */
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.ref{background:var(--flaeche);border:1px solid var(--linie);display:grid}
+.ref .bild{aspect-ratio:4/3;max-width:100%;background:repeating-linear-gradient(135deg,var(--linie) 0 1px,transparent 1px 14px);display:grid;place-items:center}
+.ref .txt{padding:16px;display:grid;gap:4px}
+.ref .txt span{font-size:.9rem;color:var(--grau)}
+
+.hersteller{display:flex;flex-wrap:wrap;gap:10px 28px;font:700 1.15rem/1.4 var(--display);color:var(--grau);letter-spacing:.03em}
+
+/* Team */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.person{background:var(--flaeche);border:1px solid var(--linie);padding:22px;display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center}
+.person .foto{width:72px;height:72px;border-radius:50%;background:var(--linie);display:grid;place-items:center;font:700 1.2rem var(--display);color:var(--grau)}
+.person span{display:block;font-size:.92rem;color:var(--grau)}
+.person .kontakt{font-family:var(--mono);font-size:.9rem;color:var(--tinte);user-select:all}
+
+/* FAQ */
+.faq details{border-bottom:1px solid var(--linie);padding-block:14px}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--violett);font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:10px;color:var(--grau)}
+
+/* Formular */
+.anfrage{background:var(--hero-bg);color:var(--hero-tinte)}
+.anfrage .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.anfrage p{color:var(--hero-grau)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font-size:.88rem;color:var(--hero-grau)}
+label.ganz{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--tinte);background:#fff;border:1px solid #c9d1e3;border-radius:6px;padding:.6em .7em;width:100%}
+textarea{min-height:110px;resize:vertical}
+.meldung{grid-column:1/-1;font-size:.92rem}
+@media (max-width:860px){.anfrage .wrap{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+
+
+/* Fotoplätze: Datei in bilder/ hochladen, gleicher Name → erscheint automatisch */
+.foto-platz{position:relative;display:grid;place-items:center;overflow:hidden;background:repeating-linear-gradient(135deg,var(--linie) 0 1px,transparent 1px 14px)}
+.foto-platz img{width:100%;height:100%;object-fit:cover;display:block}
+.foto-platz .fehlt{font:600 .75rem/1.4 var(--mono);color:var(--grau);text-align:center;padding:12px;max-width:26ch}
+.foto-platz.da .fehlt{display:none}
+.hero-foto{aspect-ratio:16/10;border-radius:6px 6px 0 0;background-color:#17275A}
+.hero-foto .fehlt{color:var(--hero-grau)}
+.hero-foto:not(.da) img{display:none}
+.band{aspect-ratio:21/8;margin-top:40px;border:1px solid var(--linie)}
+@media (max-width:760px){.band{aspect-ratio:4/3}}
+.person .foto{overflow:hidden}
+.person .foto img{width:100%;height:100%;object-fit:cover}
+
+footer{padding-block:32px;font-size:.88rem;color:var(--grau)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marke" href="#start">VOLTAIK<small>Gewerbe · Industrie · Freifläche</small></a>
+    <nav class="nav" aria-label="Seitenbereiche">
+      <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#referenzen">Referenzen</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="knopf" href="#anfrage">Projekt anfragen</a>
+  </div>
+</header>
+
+<main id="start">
+<section class="hero" aria-labelledby="t-hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--violett-hell)">Photovoltaik für Unternehmen in Österreich</p>
+      <h1 id="t-hero" style="margin-top:14px">Strom vom eigenen Dach – für Halle, Stall und Freifläche.</h1>
+      <p>Wir planen, liefern und bauen Photovoltaikanlagen und Stromspeicher für Gewerbe, Industrie und Landwirtschaft. Von der Lastganganalyse bis zur Anmeldung beim Netzbetreiber – aus einer Hand, direkt vom Großhandel eingekauft.</p>
+      <div class="aktionen">
+        <a class="knopf" href="#anfrage">Projekt anfragen</a>
+        <a class="knopf leise" href="#ablauf">So läuft ein Projekt</a>
+      </div>
+      <div class="kennzahlen" aria-label="Kennzahlen">
+        <div><b>100</b><span>kWp größte Einzelanlage</span></div>
+        <div><b>17</b><span>Projekte umgesetzt</span></div>
+        <div><b>10</b><span>Jahre Erfahrung</span></div>
+      </div>
+    </div>
+    <div>
+      <!-- FOTO: bilder/titel.jpg (Querformat, ca. 1600 × 1000 px). Fehlt es, erscheint die Dach-Skizze. -->
+      <figure class="foto-platz hero-foto" data-bild="bilder/titel.jpg" style="margin:0" aria-label="Titelbild: Photovoltaik auf einem Gewerbedach"></figure>
+    <!-- Hallendach mit Modulfeld, Schnitt 10° Neigung -->
+    <svg class="dach" id="dach-skizze" viewBox="0 0 520 330" role="img" aria-label="Skizze: Hallendach mit Photovoltaik-Modulfeld">
+      <defs>
+        <pattern id="mod" width="26" height="16" patternUnits="userSpaceOnUse">
+          <rect x="1" y="1" width="24" height="14" fill="#2A4088" stroke="#D36BF1" stroke-width=".8"/>
+          <line x1="13" y1="1" x2="13" y2="15" stroke="#5C6FB0" stroke-width=".5"/>
+        </pattern>
+      </defs>
+      <polygon points="40,150 260,95 480,150 480,300 40,300" fill="#17275A" stroke="#6F80B8" stroke-width="1.2"/>
+      <polygon points="40,150 260,95 480,150" fill="none" stroke="#B9C3DD" stroke-width="1.5"/>
+      <g transform="translate(62,139) skewY(-14)"><rect width="182" height="36" fill="url(#mod)"/></g>
+      <g transform="translate(276,99) skewY(14)"><rect width="182" height="36" fill="url(#mod)"/></g>
+      <rect x="220" y="230" width="80" height="70" fill="#101A3D" stroke="#6F80B8"/>
+      <g fill="#B9C3DD" font-family="ui-monospace,Consolas,monospace" font-size="11">
+        <line x1="40" y1="318" x2="480" y2="318" stroke="#B9C3DD" stroke-width=".8"/>
+        <line x1="40" y1="312" x2="40" y2="324" stroke="#B9C3DD"/><line x1="480" y1="312" x2="480" y2="324" stroke="#B9C3DD"/>
+        <text x="260" y="314" text-anchor="middle">Beispiel · Hallendach · 10° Neigung · Ost/West</text>
+      </g>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<section id="leistungen" aria-labelledby="t-leist">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Leistungen</p><h2 id="t-leist">Fünf Anlagentypen, ein Ansprechpartner</h2></div>
+    <div class="leistungen">
+      <article class="leistung"><span class="masz">ab 30 kWp</span><h3>Großanlagen auf dem Dach</h3><p>Hallen-, Flach- und Trapezblechdächer. Belegungsplan, Statik und Unterkonstruktion passend zur Dachhaut.</p></article>
+      <article class="leistung"><span class="masz">Handel · Handwerk · Büro</span><h3>Gewerbe</h3><p>Eigenverbrauch tagsüber, wenn der Betrieb läuft. Dimensioniert nach Ihrem Lastgang, nicht nach der Dachgröße.</p></article>
+      <article class="leistung"><span class="masz">Produktion · Kühlung</span><h3>Industrie</h3><p>Hohe Grundlast, Mittelspannungsanschluss, Lastspitzen. Anlage und Speicher so ausgelegt, dass die Netzkosten sinken.</p></article>
+      <article class="leistung"><span class="masz">Wiese · Agri-PV</span><h3>Freiflächenanlagen</h3><p>Aufgeständerte Anlagen auf Freiflächen und über landwirtschaftlich genutzten Flächen, inklusive Netzanschlussprüfung.</p></article>
+      <article class="leistung"><span class="masz">kWh · kW</span><h3>Speicherlösungen</h3><p>Gewerbespeicher für Eigenverbrauch, Lastspitzenkappung und Notstrom – von Huawei, Sigenergy, CATL, Dyness und weiteren.</p></article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-warum" style="padding-top:0">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Warum Voltaik</p><h2 id="t-warum">Großhandel und Montage unter einem Dach</h2></div>
+    <div class="warum">
+      <div><h3>Einkauf direkt beim Großhandel</h3><p>Wir beziehen Module, Wechselrichter und Speicher direkt bei den großen Distributoren. Das hält die Materialkosten niedrig und die Lieferzeit kurz.</p></div>
+      <div><h3>Herstellerunabhängig</h3><p>Wir empfehlen, was zu Ihrem Betrieb passt – nicht, was wir zufällig auf Lager haben. Jede Kombination ist auf Kompatibilität geprüft.</p></div>
+      <div><h3>Planung mit Statik</h3><p>Belegungsplan, Stringplan und statischer Nachweis der Unterkonstruktion gehören zum Projekt, nicht zum Nachtrag.</p></div>
+      <div><h3>Eigene Monteure, Partner in ganz Österreich</h3><p>Unser Montageteam wird von einem Netzwerk geprüfter Montagepartner ergänzt. So bauen wir auch große Flächen termintreu.</p></div>
+      <div><h3>Netzanmeldung und Förderung</h3><p>Wir übernehmen die Anmeldung beim Netzbetreiber und prüfen die passende Förderung für Ihr Projekt.</p></div>
+      <div><h3>Betreuung nach dem Bau</h3><p>Monitoring, Wartung und ein fester Ansprechpartner, auch Jahre nach der Inbetriebnahme.</p></div>
+    </div>
+    <!-- FOTO: bilder/montage.jpg (breites Querformat, ca. 2100 × 800 px) — Team bei der Montage -->
+    <figure class="foto-platz band" data-bild="bilder/montage.jpg" style="margin-top:40px" aria-label="Unser Team bei der Montage"></figure>
+  </div>
+</section>
+
+<section id="ablauf" aria-labelledby="t-ablauf" style="background:var(--flaeche);border-block:1px solid var(--linie)">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Ablauf</p><h2 id="t-ablauf">Vom Lastgang zur laufenden Anlage</h2></div>
+    <ol class="ablauf">
+      <li><b>Erstgespräch</b><span>Sie schicken uns Lastgang oder Jahresverbrauch und Fotos von Dach bzw. Fläche.</span></li>
+      <li><b>Machbarkeit</b><span>Ertragsprognose, Eigenverbrauchsquote und Amortisation für Ihren Standort.</span></li>
+      <li><b>Angebot und Förderung</b><span>Festpreisangebot mit Stückliste, Montage und Förderprüfung.</span></li>
+      <li><b>Planung</b><span>Belegungsplan, Statik, Stringplan und Netzanfrage beim Netzbetreiber.</span></li>
+      <li><b>Bau</b><span>Lieferung auf die Baustelle, Montage durch unser Team und Partner.</span></li>
+      <li><b>Inbetriebnahme</b><span>Messung, Prüfbericht, Fertigmeldung, Monitoring und Wartung.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="t-rech">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Wirtschaftlichkeit</p><h2 id="t-rech">Was eine Anlage auf Ihrem Dach bringt</h2></div>
+    <div class="rechnung">
+      <div style="display:grid;gap:12px">
+        <p>Wie viel Strom Ihr Dach erzeugt und wann sich die Anlage bezahlt macht, hängt von Standort, Neigung, Ausrichtung und vor allem von Ihrem Verbrauch tagsüber ab.</p>
+        <p>Für jede Anfrage rechnen wir den Ertrag mit PVGIS, dem Photovoltaik-Rechner der Europäischen Kommission, für Ihren genauen Standort – und legen Ihren Lastgang daneben. So sehen Sie Eigenverbrauch, Ersparnis und Amortisation für Ihren Betrieb, nicht für einen Durchschnitt.</p>
+      </div>
+      <dl>
+        <dt>Ertrag</dt><dd>PVGIS, standortgenau</dd>
+        <dt>Eigenverbrauch</dt><dd>aus Ihrem Lastgang</dd>
+        <dt>Speicher</dt><dd>nur, wenn er sich rechnet</dd>
+        <dt>Förderung</dt><dd>im Angebot geprüft</dd>
+        <dt>Ergebnis</dt><dd>Ersparnis und Amortisation</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="referenzen" aria-labelledby="t-ref" style="padding-top:0">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Referenzen</p><h2 id="t-ref">Projekte, die wir gebaut haben</h2></div>
+    <!-- Referenzen stehen in referenzen.js (Text) und bilder/referenz-N.jpg (Fotos). -->
+    <div class="refs" id="refs"></div>
+    <div style="margin-top:40px;display:grid;gap:14px">
+      <p class="eyebrow">Hersteller, mit denen wir bauen</p>
+      <div class="hersteller"><span>HUAWEI</span><span>SIGENERGY</span><span>FRONIUS</span><span>SMA</span><span>DEYE</span><span>DYNESS</span><span>CATL</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" aria-labelledby="t-team" style="padding-top:0">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Ansprechpartner</p><h2 id="t-team">Sie sprechen direkt mit den Inhabern</h2></div>
+    <div class="team">
+      <div class="person"><div class="foto foto-platz" data-bild="bilder/franz.jpg" data-kurz="FH" aria-hidden="true"></div><div><b>Franz Holzner</b><span>Technik und Projekte</span><span class="kontakt">+43 660 2100500 (auch WhatsApp)</span></div></div>
+      <div class="person"><div class="foto foto-platz" data-bild="bilder/willi.jpg" data-kurz="WK" aria-hidden="true"></div><div><b>Willi Krenn</b><span>Angebot und Einkauf</span><span class="kontakt">office@voltaik.shop</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="t-faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="kopf"><p class="eyebrow">Häufige Fragen</p><h2 id="t-faq">Was Betriebe vorab wissen wollen</h2></div>
+    <details><summary>Ab welcher Größe lohnt sich eine Gewerbeanlage?</summary><p>Wir planen Gewerbeanlagen ab etwa 30 kWp. Entscheidend ist weniger die Dachgröße als Ihr Verbrauch tagsüber: Je mehr Solarstrom Sie selbst nutzen, desto schneller rechnet sich die Anlage.</p></details>
+    <details><summary>Wie lange dauert ein Projekt?</summary><p>Die Montage selbst dauert je nach Größe wenige Tage bis wenige Wochen. Die meiste Zeit brauchen Planung, Statik und die Zusage des Netzbetreibers. Wir nennen Ihnen nach dem Erstgespräch einen realistischen Zeitplan.</p></details>
+    <details><summary>Was brauchen Sie von uns für ein Angebot?</summary><p>Den Jahresverbrauch oder besser den Lastgang (vom Netzbetreiber, meist als Viertelstundenwerte), Fotos von Dach oder Fläche, den Zählerschrank und den Namen Ihres Netzbetreibers.</p></details>
+    <details><summary>Trägt mein Dach die Anlage?</summary><p>Das prüfen wir mit einem statischen Nachweis. Bei älteren Hallen klären wir vorab mit Ihrem Statiker, welche Zusatzlast das Dach aufnehmen kann.</p></details>
+    <details><summary>Gibt es Förderungen?</summary><p>Für Photovoltaik und Speicher gibt es in Österreich Investitionsförderungen. Welche für Ihr Projekt passt und wann sie beantragt werden muss, prüfen wir im Angebot.</p></details>
+    <details><summary>Wer wartet die Anlage?</summary><p>Wir. Auf Wunsch überwachen wir die Anlage laufend und melden uns, wenn der Ertrag abweicht.</p></details>
+  </div>
+</section>
+
+<section id="anfrage" class="anfrage" aria-labelledby="t-anf">
+  <div class="wrap">
+    <div style="display:grid;gap:14px;align-content:start">
+      <p class="eyebrow" style="color:var(--violett-hell)">Projekt anfragen</p>
+      <h2 id="t-anf">Erzählen Sie uns von Ihrem Betrieb</h2>
+      <p>Wir melden uns innerhalb von zwei Werktagen mit einer ersten Einschätzung. Mit Lastgang wird sie genauer.</p>
+      <p>Lieber direkt? Franz Holzner: <span style="user-select:all;color:var(--hero-tinte)">+43 660 2100500</span> (auch WhatsApp)</p>
+    </div>
+    <form id="formular" novalidate>
+      <label for="f-firma">Firma<input id="f-firma" name="firma" required autocomplete="organization"></label>
+      <label for="f-name">Ansprechpartner<input id="f-name" name="name" required autocomplete="name"></label>
+      <label for="f-mail">E-Mail<input id="f-mail" name="email" type="email" required autocomplete="email"></label>
+      <label for="f-tel">Telefon<input id="f-tel" name="telefon" type="tel" autocomplete="tel"></label>
+      <label for="f-ort">Standort (PLZ, Ort)<input id="f-ort" name="ort" required></label>
+      <label for="f-art">Objektart
+        <select id="f-art" name="objektart"><option>Gewerbehalle</option><option>Industriebetrieb</option><option>Landwirtschaft</option><option>Freifläche</option><option>Nur Speicher</option><option>Sonstiges</option></select></label>
+      <label for="f-flaeche">Dach- bzw. Freifläche (m²)<input id="f-flaeche" name="flaeche" inputmode="numeric"></label>
+      <label for="f-verbrauch">Jahresverbrauch (kWh)<input id="f-verbrauch" name="verbrauch" inputmode="numeric"></label>
+      <p class="ganz" style="font-size:.88rem">Lastgang (CSV oder Excel) und Fotos hängen Sie einfach an die E-Mail an, die sich beim Absenden öffnet.</p>
+      <label for="f-text" class="ganz">Ihr Vorhaben<textarea id="f-text" name="nachricht" placeholder="z. B. 2.000 m² Hallendach, Kühlhaus, Speicher gegen Lastspitzen, Umsetzung Frühjahr"></textarea></label>
+      <div class="ganz" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button class="knopf" type="submit">Anfrage per E-Mail senden</button><span class="meldung" id="meldung" role="status"></span></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Voltaik Holzner &amp; Krenn GmbH · Kreuzleitenstraße 22, 4451 Garsten · <a href="https://voltaik.shop/policies/legal-notice">Impressum</a> · <a href="https://voltaik.shop/policies/privacy-policy">Datenschutz</a></span>
+    <span>Für Privatkunden: <a href="https://voltaik.shop">voltaik.shop</a></span>
+  </div>
+</footer>
+
+<script src="referenzen.js"></script>
+<script>
+// Fotoplätze: <… data-bild="bilder/x.jpg"> — ist die Datei da, wird sie gezeigt, sonst ein Hinweis mit dem Dateinamen.
+function fotoPlatz(el) {
+  var pfad = el.getAttribute('data-bild'), ersatz = el.getAttribute('data-ersatz');
+  var hinweis = document.createElement('span'); hinweis.className = 'fehlt';
+  hinweis.textContent = el.getAttribute('data-kurz') || ('Foto folgt · ' + pfad);
+  el.appendChild(hinweis);
+  var img = new Image(); img.alt = el.getAttribute('aria-label') || ''; img.loading = 'lazy';
+  img.onload = function () { el.classList.add('da'); el.appendChild(img); var s = document.getElementById('dach-skizze'); if (el.classList.contains('hero-foto') && s) s.style.display = 'none'; };
+  img.onerror = function () { if (ersatz && img.src.indexOf(ersatz) < 0) { img.src = ersatz; } else if (el.classList.contains('hero-foto')) { el.style.display = 'none'; } };
+  img.src = pfad;
+}
+// Referenzen aus referenzen.js
+(function () {
+  var box = document.getElementById('refs');
+  (window.REFERENZEN || []).forEach(function (r, i) {
+    var a = document.createElement('article'); a.className = 'ref';
+    var f = document.createElement('figure'); f.className = 'foto-platz bild'; f.style.margin = '0';
+    f.setAttribute('data-bild', r.bild || ('bilder/referenz-' + (i + 1) + '.jpg'));
+    if (r.ersatzbild) f.setAttribute('data-ersatz', r.ersatzbild);
+    f.setAttribute('aria-label', r.titel || 'Referenzprojekt');
+    var t = document.createElement('div'); t.className = 'txt';
+    var b = document.createElement('b'); b.textContent = r.titel || 'Projekt ' + (i + 1); t.appendChild(b);
+    if (r.details) { var s = document.createElement('span'); s.textContent = r.details; t.appendChild(s); }
+    if (r.link) { var l = document.createElement('span'), la = document.createElement('a'); la.href = r.link; la.textContent = r.linktext || 'Zum Projektbericht'; l.appendChild(la); t.appendChild(l); }
+    a.appendChild(f); a.appendChild(t); box.appendChild(a);
+  });
+})();
+document.querySelectorAll('[data-bild]').forEach(fotoPlatz);
+
+// Anfrage: GitHub Pages kann nichts serverseitig senden → E-Mail an office@ wird vorbereitet
+// (Betreff „Großprojekt-Anfrage“, der Lead-Intake legt daraus den Lead an).
+document.getElementById('formular').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var fehlt = [];
+  ['f-firma', 'f-name', 'f-mail', 'f-ort'].forEach(function (id) { if (!document.getElementById(id).value.trim()) fehlt.push(document.querySelector('label[for="' + id + '"]').firstChild.textContent.trim()); });
+  var m = document.getElementById('meldung');
+  if (fehlt.length) { m.textContent = 'Bitte noch ausfüllen: ' + fehlt.join(', ') + '.'; return; }
+  var w = function (id) { return document.getElementById(id).value.trim(); };
+  var text = ['Firma: ' + w('f-firma'), 'Ansprechpartner: ' + w('f-name'), 'E-Mail: ' + w('f-mail'), 'Telefon: ' + w('f-tel'),
+    'Standort: ' + w('f-ort'), 'Objektart: ' + w('f-art'), 'Fläche (m²): ' + w('f-flaeche'), 'Jahresverbrauch (kWh): ' + w('f-verbrauch'),
+    '', 'Vorhaben:', w('f-text'), '', '(Lastgang und Fotos bitte anhängen.)', '', 'Quelle: voltaik.at'].join('\n');
+  var betreff = 'Großprojekt-Anfrage: ' + w('f-firma') + ', ' + w('f-ort');
+  window.location.href = 'mailto:office@voltaik.shop?subject=' + encodeURIComponent(betreff) + '&body=' + encodeURIComponent(text);
+  m.textContent = 'Ihr E-Mail-Programm öffnet sich mit der vorbereiteten Anfrage – bitte dort absenden.';
+});
+</script>
+</body>
+</html>
