@@ -1,33 +1,44 @@
 # voltaik-at
 
-Voltaik – PV-Großprojekte (voltaik.at). Eine statische Seite (`index.html`), veröffentlicht über GitHub Pages.
+Voltaik – PV-Großprojekte (voltaik.at). Eine statische Seite (`index.html`), veröffentlicht über GitHub Pages
+(Datei `CNAME` = voltaik.at, `.nojekyll`).
 
-## Fotos tauschen (ohne Programmieren)
+## Dateien
 
-Alle Fotos liegen im Ordner **`bilder/`** und haben **feste Namen**. Die Seite zeigt ein Foto automatisch,
-sobald eine Datei mit genau diesem Namen dort liegt; fehlt sie, steht an der Stelle „Foto folgt · bilder/…“.
+| Datei | Inhalt |
+|---|---|
+| `index.html` | Seite mit Texten (Montage, Team, Leistungen, Shop, Referenzen, Versprechen, FAQ, Kontakt) |
+| `produkte.js` | Produktkarten (Titel, Bild, Link auf voltaik.shop, kein Preis) und Produktzahl des Shops. **Nicht von Hand ändern** – erzeugt im Ops-Repo mit `python3 python-scripts/voltaik_at_produkte.py --ziel <ordner>` |
+| `referenzen.js` | Referenzprojekte (siehe unten) |
+| `bilder/` | Fotos, je WebP + JPG, ≤ 300 KB (Porträts ≤ 150 KB) |
 
-1. Auf GitHub den Ordner `bilder` öffnen → **Add file → Upload files**.
-2. Foto hineinziehen. **Der Dateiname muss genau stimmen** (klein geschrieben, Endung `.jpg`).
-   Vorher am PC umbenennen. Gleicher Name wie ein vorhandenes Foto = ersetzt es.
-3. Unten **Commit changes**. Nach 1–2 Minuten ist es auf der Seite.
+## Fotos
 
-| Datei | Wo auf der Seite | Format (Richtwert) |
+| Datei | Wo | Herkunft |
 |---|---|---|
-| `titel.jpg` | Kopfbereich rechts (fehlt es: Dach-Skizze) | Querformat, 1600 × 1000 px |
-| `montage.jpg` | Breites Foto unter „Warum Voltaik“ | sehr breit, 2100 × 800 px |
-| `referenz-1.jpg`, `referenz-2.jpg`, … | Referenzkarten | Querformat 4:3, 1200 × 900 px |
-| `franz.jpg`, `willi.jpg` | Ansprechpartner (rund) | quadratisch, 400 × 400 px |
+| `titel.*` | Kopfbereich | KI-Bild, als „Symbolbild“ gekennzeichnet |
+| `montage-fassade.*` | Abschnitt Montage | echtes Foto: Max Ennsgrabner bei der Montage |
+| `max-ennsgrabner.*` | Team, Max | Ausschnitt aus dem echten Montagefoto |
+| `franz-holzner.*` | Team, Franz | Ausschnitt aus KI-Bild (Franz einverstanden, Willi 01.10.2026) |
+| `grossdach.*`, `planung.*` | Leistungen, Ablauf | KI-Bilder, als „Symbolbild“ gekennzeichnet |
+| `referenz-1.jpg`, `referenz-2.jpg`, … | Referenzkarten | fehlt die Datei, zeigt die Karte das `ersatzbild` bzw. „Foto folgt“ |
 
-Tipps: JPG, unter 500 KB je Foto. Nur Fotos verwenden, für die wir die Rechte haben, bei Kundenprojekten mit
-Zustimmung des Kunden.
+KI-Bilder werden ersetzt, sobald echte Fotos da sind. Neue Fotos im Ops-Repo verkleinern
+(`python-scripts/voltaik_at_bilder.py`), oder auf GitHub unter `bilder/` hochladen (gleicher Name ersetzt das alte Foto,
+dann beide Endungen `.webp` und `.jpg`).
 
 ## Referenztexte ändern
 
 Datei **`referenzen.js`** öffnen → Stift-Symbol → Titel/Details ändern → **Commit changes**.
-Anleitung steht oben in der Datei. Für ein neues Projekt einen Block kopieren und `referenz-4.jpg` hochladen.
+Anleitung steht oben in der Datei. Neues Projekt nur mit echten Angaben und Foto (`bilder/referenz-2.jpg`).
 
-## Veröffentlichen (einmalig, wenn fertig)
+## Anfrage
 
-Noch **nicht** eingeschaltet. Ablauf: Repo-Settings → Pages → Branch `main` / root → Save; Datei `CNAME` mit
-`voltaik.at` anlegen; DNS bei IONOS umstellen. Die Domain ist bei GitHub bereits verifiziert.
+GitHub Pages kann nichts serverseitig senden. „Zum Anfrageformular“ führt auf das Shopify-Kontaktformular
+(`voltaik.shop/pages/contact?betreff=Grossprojekt`), daneben Telefon und `office@voltaik.shop`.
+
+## Veröffentlichen
+
+Repo-Settings → Pages → Branch `main` / root. DNS bei IONOS (macht Willi): 4 × A 185.199.108.153 – 185.199.111.153,
+AAAA 2606:50c0:8000::153 – 2606:50c0:8003::153, CNAME `www` → `morhawk-fly.github.io`; vorher die Domain voltaik.at
+in Shopify entfernen. Die Domain ist bei GitHub bereits verifiziert.
