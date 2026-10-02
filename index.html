@@ -53,7 +53,9 @@ img{max-width:100%;height:auto;display:block}
 .knopf{display:inline-block;background:var(--violett-hell);color:#1A0B24;font-weight:700;text-decoration:none;border:0;border-radius:6px;padding:.7em 1.15em;font-size:.95rem;cursor:pointer}
 .knopf:hover{background:#E08BF6}
 .knopf.leise{background:transparent;color:var(--hero-tinte);border:1px solid rgba(255,255,255,.35)}
+.knoepfe{display:flex;gap:10px;flex-wrap:nowrap}
 @media (max-width:860px){.nav{display:none}}
+@media (max-width:480px){.top .knopf{padding:.6em .8em;font-size:.85rem}}
 
 /* Hero */
 .hero{background:var(--hero-bg);color:var(--hero-tinte);padding-block:56px 48px;overflow:hidden}
@@ -139,6 +141,14 @@ section{padding-block:72px}
 .mehr summary{cursor:pointer;font-weight:700;display:inline-block;padding:.6em 1em;border:1px solid var(--linie);border-radius:6px;background:var(--flaeche)}
 .mehr[open] summary{margin-bottom:18px}
 .shopzeile{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px;align-items:center}
+.shopfakten{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--linie);border:1px solid var(--linie);margin-bottom:36px}
+.shopfakten>*{background:var(--bg,#fff);padding:18px 20px;display:grid;gap:4px;align-content:start;text-decoration:none;color:inherit}
+.shopfakten b{font:700 1.5rem/1.1 var(--display);color:var(--violett);font-variant-numeric:tabular-nums}
+.shopfakten>*>span{font-size:.9rem;color:var(--grau)}
+.shopfakten a:hover b{text-decoration:underline}
+.pakete{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.pakete a{padding:.5em .9em;border:1px solid var(--linie);border-radius:6px;background:var(--bg,#fff);text-decoration:none;color:inherit;font-size:.92rem}
+.pakete a:hover{border-color:var(--violett)}
 .hersteller{display:flex;flex-wrap:wrap;gap:10px 28px;font:700 1.15rem/1.4 var(--display);color:var(--grau);letter-spacing:.03em;text-transform:uppercase}
 
 .refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
@@ -186,7 +196,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <nav class="nav" aria-label="Seitenbereiche">
       <a href="#montage">Montage</a><a href="#team">Team</a><a href="#leistungen">Leistungen</a><a href="#produkte">Produkte</a><a href="#referenzen">Referenzen</a><a href="#anfrage">Kontakt</a>
     </nav>
-    <a class="knopf" href="#anfrage">Projekt anfragen</a>
+    <div class="knoepfe">
+      <a class="knopf leise" href="https://voltaik.shop/?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte">Zum Shop</a>
+      <a class="knopf" href="#anfrage">Projekt anfragen</a>
+    </div>
   </div>
 </header>
 
@@ -377,6 +390,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <h2 id="t-shop">Über <span id="produktzahl">500</span> Produkte in bester Produktqualität</h2>
       <p style="color:var(--grau)">Was wir verbauen, finden Sie auch in unserem Onlineshop – namhafte Hersteller, direkt eingekauft. Für Großprojekte eignen sich besonders diese Speicher, Systeme und Wechselrichter. Preise und Auslegung besprechen wir im Angebot.</p>
     </div>
+    <div class="shopfakten" aria-label="Aus unserem Webshop">
+      <div><b><span id="f-produkte">500</span>+</b><span>Produkte im Shop<span id="f-marken-text"></span></span></div>
+      <a href="https://voltaik.shop/pages/kompatibilitaet?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte"><b>Passt zusammen</b><span>Kompatibilitätsprüfung: Wechselrichter, Speicher und Zubehör sind im Shop gegeneinander geprüft.</span></a>
+      <div><b>Aus dem Lager</b><span>Lagernde Ware liefern wir direkt aus dem Lager – die Verfügbarkeit steht bei jedem Produkt.</span></div>
+      <a href="https://voltaik.shop/pages/alle-bewertungen?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte"><b id="f-bewertungen">Bewertungen</b><span id="f-bewertungen-text">Was Kundinnen und Kunden über den Shop sagen.</span></a>
+    </div>
+    <div id="pakete-block" hidden style="margin-bottom:36px">
+      <h3>Komplettpakete aus dem Shop</h3>
+      <div class="pakete" id="pakete"></div>
+    </div>
     <h3 style="margin-bottom:16px">Gewerbespeicher und Systeme</h3>
     <div class="karten" id="karten-speicher"></div>
     <details class="mehr">
@@ -507,7 +530,19 @@ function fotoPlatz(el) {
     else document.getElementById('karten-speicher').appendChild(karte(k));
   });
   document.getElementById('anzahl-wr').textContent = wr;
-  if (window.SHOP_PRODUKTZAHL) document.getElementById('produktzahl').textContent = window.SHOP_PRODUKTZAHL;
+  if (window.SHOP_PRODUKTZAHL) {
+    document.getElementById('produktzahl').textContent = window.SHOP_PRODUKTZAHL;
+    document.getElementById('f-produkte').textContent = window.SHOP_PRODUKTZAHL;
+  }
+  // Sortiment in Zahlen, Bewertungen und Komplettpakete: Werte aus produkte.js (beim Bauen aus Shopify).
+  if (window.SHOP_MARKENZAHL) document.getElementById('f-marken-text').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
+  if (window.SHOP_BEWERTUNGEN > 0) {
+    document.getElementById('f-bewertungen').textContent = window.SHOP_BEWERTUNGEN + ' Bewertungen';
+    document.getElementById('f-bewertungen-text').textContent = 'Echte Kundenbewertungen im Shop nachlesen.';
+  }
+  var pk = window.SHOP_PAKETE || [], pl = document.getElementById('pakete');
+  pk.forEach(function (k) { var a = document.createElement('a'); a.href = k.link; a.textContent = k.titel; pl.appendChild(a); });
+  if (pk.length) document.getElementById('pakete-block').hidden = false;
   var hl = document.getElementById('hersteller');
   hersteller.sort().forEach(function (n) { var s = document.createElement('span'); s.textContent = n; hl.appendChild(s); });
 })();

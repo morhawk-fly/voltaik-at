@@ -1,6 +1,38 @@
 // Erzeugt von python-scripts/voltaik_at_produkte.py (Ops-Repo) — nicht von Hand ändern.
-// Stand 2026-10-01: 62 Produkte, Shop 504 Produkte.
+// Stand 2026-10-02: 62 Produkte, Shop 504 Produkte, 36 Marken.
 window.SHOP_PRODUKTZAHL = 500;
+window.SHOP_MARKENZAHL = 36;
+window.SHOP_BEWERTUNGEN = 0;
+window.SHOP_PAKETE = [
+ {
+  "titel": "Sigenergy Komplettpaket",
+  "link": "https://voltaik.shop/products/sigenergy-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Deye Komplettpaket",
+  "link": "https://voltaik.shop/products/deye-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Huawei Komplettpaket",
+  "link": "https://voltaik.shop/products/huawei-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Fronius Komplettpaket",
+  "link": "https://voltaik.shop/products/fronius-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Sigenergy Gewerbespeicher 252 kWh (Sigenstack)",
+  "link": "https://voltaik.shop/products/sigenergy-sigenstack-252-kwh-c-und-i-ess?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Sigenergy Gateway C&I 600 kW für Sigenstack",
+  "link": "https://voltaik.shop/products/sigenergy-gateway-c-und-i-600-kw-fur-sigenstack?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "BYD Komplettpaket",
+  "link": "https://voltaik.shop/products/byd-komplettanlage?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ }
+];
 window.PRODUKTE = [
  {
   "gruppe": "speicher",
