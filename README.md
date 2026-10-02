@@ -17,7 +17,7 @@ Voltaik – PV-Großprojekte (voltaik.at). Eine statische Seite (`index.html`), 
 | Datei | Wo | Herkunft |
 |---|---|---|
 | `titel.*` | Kopfbereich | KI-Bild, als „Symbolbild“ gekennzeichnet |
-| `montage-fassade.*` | Abschnitt Montage | echtes Foto: Max Ennsgrabner bei der Montage |
+| `montage-fassade.*` | Abschnitt Montage | echtes Foto: Max Ennsgraber bei der Montage |
 | `max-ennsgrabner.*` | Team, Max | Ausschnitt aus dem echten Montagefoto |
 | `franz-holzner.*` | Team, Franz | Ausschnitt aus KI-Bild (Franz einverstanden, Willi 01.10.2026) |
 | `grossdach.*`, `planung.*` | Leistungen, Ablauf | KI-Bilder, als „Symbolbild“ gekennzeichnet |
