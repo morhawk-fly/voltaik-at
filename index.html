@@ -250,8 +250,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   <div class="wrap">
     <div>
       <p class="eyebrow">Unser Webshop · voltaik.shop</p>
-      <h2 id="t-shopbanner">Material, das wir verbauen – auch im eigenen Onlineshop</h2>
-      <p>Wechselrichter, Speicher, Module und Montagematerial namhafter Hersteller, direkt eingekauft und auf Verträglichkeit geprüft.</p>
+      <h2 id="t-shopbanner">Hinter Ihrem Großprojekt steht ein eigener PV-Fachhandel</h2>
+      <p>Über <span id="b-produkte-text">500</span> Produkte<span id="b-marken-text"></span>, Kompatibilität geprüft, Ware ab Lager – Wechselrichter, Speicher, Module und Montagematerial, die wir selbst einkaufen und verbauen.</p>
       <a class="knopf" href="https://voltaik.shop/?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte&amp;utm_content=banner">Zum Shop</a>
     </div>
     <div class="zahlen" aria-label="Der Shop in Zahlen">
@@ -567,11 +567,13 @@ function fotoPlatz(el) {
     document.getElementById('produktzahl').textContent = window.SHOP_PRODUKTZAHL;
     document.getElementById('f-produkte').textContent = window.SHOP_PRODUKTZAHL;
     document.getElementById('b-produkte').textContent = window.SHOP_PRODUKTZAHL;
+    document.getElementById('b-produkte-text').textContent = window.SHOP_PRODUKTZAHL;
   }
   // Sortiment in Zahlen, Bewertungen und Komplettpakete: Werte aus produkte.js (beim Bauen aus Shopify).
   if (window.SHOP_MARKENZAHL) {
     document.getElementById('f-marken-text').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
     document.getElementById('b-marken').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
+    document.getElementById('b-marken-text').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
   }
   if (window.SHOP_BEWERTUNGEN > 0) {
     document.getElementById('b-bewertungen').textContent = window.SHOP_BEWERTUNGEN;
