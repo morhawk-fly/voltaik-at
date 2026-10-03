@@ -184,6 +184,22 @@ section{padding-block:72px}
 .anfrage .direkt b{color:var(--hero-tinte)}
 @media (max-width:860px){.anfrage .wrap{grid-template-columns:1fr}}
 
+/* Shop-Banner unter dem Hero (Auftrag 174, Willi 03.10.: groß, weit oben, Kompetenz des Shops) */
+.shopbanner{padding-block:0;background:linear-gradient(110deg,#5B2A86 0%,var(--violett) 55%,var(--violett-hell) 100%);color:#fff}
+.shopbanner .wrap{display:grid;grid-template-columns:1.1fr 1.4fr;gap:32px;align-items:center;padding-block:40px}
+.shopbanner h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-top:10px}
+.shopbanner p{color:rgba(255,255,255,.88);margin-top:12px}
+.shopbanner .eyebrow{color:#fff;opacity:.85}
+.shopbanner .zahlen{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.25)}
+.shopbanner .zahlen>*{background:rgba(30,20,60,.35);padding:18px 20px;display:grid;gap:4px;align-content:start;text-decoration:none;color:#fff}
+.shopbanner .zahlen b{font:700 1.6rem/1.1 var(--display);font-variant-numeric:tabular-nums}
+.shopbanner .zahlen>*>span{font-size:.9rem;color:rgba(255,255,255,.85)}
+.shopbanner .zahlen a:hover b{text-decoration:underline}
+.shopbanner .knopf{background:#fff;color:#3A1458;margin-top:20px}
+.shopbanner .knopf:hover{background:#F3E6FA}
+@media (max-width:860px){.shopbanner .wrap{grid-template-columns:1fr}}
+@media (max-width:420px){.shopbanner .zahlen>*{padding:14px}.shopbanner .zahlen b{font-size:1.3rem}}
+
 footer{padding-block:32px;font-size:.88rem;color:var(--grau)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 </style>
@@ -227,6 +243,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       </picture>
       <figcaption><span class="symbol">Symbolbild</span></figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="shopbanner" aria-labelledby="t-shopbanner">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Unser Webshop · voltaik.shop</p>
+      <h2 id="t-shopbanner">Material, das wir verbauen – auch im eigenen Onlineshop</h2>
+      <p>Wechselrichter, Speicher, Module und Montagematerial namhafter Hersteller, direkt eingekauft und auf Verträglichkeit geprüft.</p>
+      <a class="knopf" href="https://voltaik.shop/?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte&amp;utm_content=banner">Zum Shop</a>
+    </div>
+    <div class="zahlen" aria-label="Der Shop in Zahlen">
+      <div><b><span id="b-produkte">500</span>+</b><span>Produkte<span id="b-marken"></span></span></div>
+      <a href="https://voltaik.shop/pages/kompatibilitaet?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte&amp;utm_content=banner"><b>Geprüft</b><span>Kompatibilitätsprüfung für Wechselrichter, Speicher und Zubehör</span></a>
+      <div><b>Ab Lager</b><span>Lagernde Ware geht direkt aus dem Lager</span></div>
+      <a href="https://voltaik.shop/pages/alle-bewertungen?utm_source=voltaik.at&amp;utm_medium=referral&amp;utm_campaign=grossprojekte&amp;utm_content=banner"><b id="b-bewertungen">Bewertungen</b><span>Echte Kundenbewertungen</span></a>
+    </div>
   </div>
 </section>
 
@@ -533,10 +566,15 @@ function fotoPlatz(el) {
   if (window.SHOP_PRODUKTZAHL) {
     document.getElementById('produktzahl').textContent = window.SHOP_PRODUKTZAHL;
     document.getElementById('f-produkte').textContent = window.SHOP_PRODUKTZAHL;
+    document.getElementById('b-produkte').textContent = window.SHOP_PRODUKTZAHL;
   }
   // Sortiment in Zahlen, Bewertungen und Komplettpakete: Werte aus produkte.js (beim Bauen aus Shopify).
-  if (window.SHOP_MARKENZAHL) document.getElementById('f-marken-text').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
+  if (window.SHOP_MARKENZAHL) {
+    document.getElementById('f-marken-text').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
+    document.getElementById('b-marken').textContent = ' von ' + window.SHOP_MARKENZAHL + ' Marken';
+  }
   if (window.SHOP_BEWERTUNGEN > 0) {
+    document.getElementById('b-bewertungen').textContent = window.SHOP_BEWERTUNGEN;
     document.getElementById('f-bewertungen').textContent = window.SHOP_BEWERTUNGEN + ' Bewertungen';
     document.getElementById('f-bewertungen-text').textContent = 'Echte Kundenbewertungen im Shop nachlesen.';
   }
