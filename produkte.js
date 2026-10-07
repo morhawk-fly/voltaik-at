@@ -1,7 +1,7 @@
 // Erzeugt von python-scripts/voltaik_at_produkte.py (Ops-Repo) — nicht von Hand ändern.
-// Stand 2026-10-03: 62 Produkte, Shop 507 Produkte, 36 Marken.
+// Stand 2026-10-07: 67 Produkte, Shop 544 Produkte, 38 Marken.
 window.SHOP_PRODUKTZAHL = 500;
-window.SHOP_MARKENZAHL = 36;
+window.SHOP_MARKENZAHL = 38;
 window.SHOP_BEWERTUNGEN = 0;
 window.SHOP_PAKETE = [
  {
@@ -53,6 +53,22 @@ window.PRODUKTE = [
   "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/f128-thumb-large.webp?v=1786164773&width=600",
   "alt": "Deye GE-F128 – 128 kWh C&I-Energiespeicher",
   "link": "https://voltaik.shop/products/deye-ge-f128-128-kwh-c-i-energiespeicher?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "gruppe": "speicher",
+  "titel": "Deye Gewerbespeicher 215 kWh mit 100-kW-Hybrid-Wechselrichter, All-in-One (MS-GS215-2H2)",
+  "hersteller": "Deye",
+  "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/s1-3-1601x2160.png?v=1791393296&width=600",
+  "alt": "Deye Gewerbespeicher 215 kWh mit 100-kW-Hybrid-Wechselrichter, All-in-One (MS-GS215-2H2)",
+  "link": "https://voltaik.shop/products/deye-gewerbespeicher-215-kwh-mit-100-kw-hybrid-wechselrichter-all-in-one-ms-gs215-2h2?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "gruppe": "speicher",
+  "titel": "Deye Gewerbespeicher 241,15 kWh, Hochvolt (GE-F240)",
+  "hersteller": "Deye",
+  "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/256-thumb-large_184dabd9-727b-4a20-879f-e0740def4a65.webp?v=1791393281&width=600",
+  "alt": "Deye Gewerbespeicher 241,15 kWh, Hochvolt (GE-F240)",
+  "link": "https://voltaik.shop/products/deye-gewerbespeicher-241-15-kwh-hochvolt-ge-f240?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
  },
  {
   "gruppe": "speicher",
@@ -168,6 +184,22 @@ window.PRODUKTE = [
  },
  {
   "gruppe": "wechselrichter",
+  "titel": "Deye Hybrid-Wechselrichter 100 kW, 3-phasig (SUN-100K-SG02HP3-EU-GM10)",
+  "hersteller": "Deye",
+  "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/INV-DEYE-SUN-100-125K-SG02HP3-EU_2-thumb-large.webp?v=1791379899&width=600",
+  "alt": "Deye Hybrid-Wechselrichter 100 kW, 3-phasig (SUN-100K-SG02HP3-EU-GM10)",
+  "link": "https://voltaik.shop/products/deye-hybrid-wechselrichter-100-kw-3-phasig-sun-100k-sg02hp3-eu-gm10?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "gruppe": "wechselrichter",
+  "titel": "Deye Hybrid-Wechselrichter 125 kW, 3-phasig (SUN-125K-SG02HP3-EU-GM10)",
+  "hersteller": "Deye",
+  "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/INV-DEYE-SUN-100-125K-SG02HP3-EU_2-thumb-large_4f2653ff-8def-4dad-ae64-9eafe2c6259e.webp?v=1791379908&width=600",
+  "alt": "Deye Hybrid-Wechselrichter 125 kW, 3-phasig (SUN-125K-SG02HP3-EU-GM10)",
+  "link": "https://voltaik.shop/products/deye-hybrid-wechselrichter-125-kw-3-phasig-sun-125k-sg02hp3-eu-gm10?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "gruppe": "wechselrichter",
   "titel": "Deye Hybrid-Wechselrichter 25 kW, 3-phasig (SG01HP3-EU-AM2)",
   "hersteller": "Deye",
   "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/BTg4EX5Z82vBis6MkhgyCpkTtkWEAa-metaMzAtNTBrdy1zZy5wbmc_3D--thumb-large.webp?v=1786164749&width=600",
@@ -197,6 +229,14 @@ window.PRODUKTE = [
   "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/fQDtGE16y3uJYsl5MQYpLu1cxgJRUc-metaU1VOLTI5LjktNTAgSy1TRzAxSFAzLUVVLUJNMy00ICg0KSgxKS5wbmc_3D--thumb-large.webp?v=1786164756&width=600",
   "alt": "Deye SG01HP3-EU-BM4 – 50 kW Hybrid-Wechselrichter Hochvolt, 3-phasig",
   "link": "https://voltaik.shop/products/deye-sg01hp3-eu-bm4-50-kw-hybrid-wechselrichter-hochvolt-3-phasig-1?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "gruppe": "wechselrichter",
+  "titel": "Deye Hybrid-Wechselrichter 80 kW, 3-phasig (SUN-80K-SG02HP3-EU-EM6)",
+  "hersteller": "Deye",
+  "bild": "https://cdn.shopify.com/s/files/1/0765/8668/0643/files/INV-DEYE-SUN-80K-SG02HP3-EUEM6_1-thumb-large.webp?v=1791379890&width=600",
+  "alt": "Deye Hybrid-Wechselrichter 80 kW, 3-phasig (SUN-80K-SG02HP3-EU-EM6)",
+  "link": "https://voltaik.shop/products/deye-hybrid-wechselrichter-80-kw-3-phasig-sun-80k-sg02hp3-eu-em6?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
  },
  {
   "gruppe": "wechselrichter",
