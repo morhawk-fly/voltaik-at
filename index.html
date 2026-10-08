@@ -156,6 +156,9 @@ section{padding-block:72px}
 .ref .bild{aspect-ratio:4/3;max-width:100%}
 .ref .txt{padding:16px;display:grid;gap:4px}
 .ref .txt span{font-size:.9rem;color:var(--grau)}
+.blog-kopf{margin-top:40px}
+.blog-zeile .bild{aspect-ratio:4/3;padding:0}
+.blog-zeile .bild img{object-fit:cover}
 .foto-platz{position:relative;display:grid;place-items:center;overflow:hidden;background:repeating-linear-gradient(135deg,var(--linie) 0 1px,transparent 1px 14px)}
 .foto-platz img{width:100%;height:100%;object-fit:cover;display:block}
 .foto-platz .fehlt{font:600 .75rem/1.4 var(--mono);color:var(--grau);text-align:center;padding:12px;max-width:26ch}
@@ -456,6 +459,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <div class="kopf"><p class="eyebrow">Referenzen</p><h2 id="t-ref">Projekte, die wir gebaut haben</h2></div>
     <!-- Referenzen stehen in referenzen.js (Text) und bilder/referenz-N.jpg (Fotos). -->
     <div class="refs" id="refs"></div>
+    <p class="eyebrow blog-kopf" id="blog-kopf" hidden>Aus dem Blog</p>
+    <div class="karten blog-zeile" id="blog-neu"></div>
   </div>
 </section>
 
@@ -541,6 +546,21 @@ function fotoPlatz(el) {
     a.appendChild(f); a.appendChild(t); box.appendChild(a);
   });
   document.querySelectorAll('[data-bild]').forEach(fotoPlatz);
+})();
+
+// Blog-Zeile aus referenzen.js (window.BLOG_NEU: die 3 neuesten Beiträge, Bild + Titel + Link).
+(function () {
+  var b = window.BLOG_NEU || [], box = document.getElementById('blog-neu');
+  b.forEach(function (k) {
+    var a = document.createElement('a'); a.className = 'karte'; a.href = k.link;
+    var bild = document.createElement('div'); bild.className = 'bild';
+    var i = new Image(); i.src = k.bild; i.alt = k.alt || k.titel; i.loading = 'lazy'; bild.appendChild(i);
+    var t = document.createElement('div'); t.className = 'txt';
+    var h = document.createElement('b'); h.textContent = k.titel; t.appendChild(h);
+    var s = document.createElement('span'); s.textContent = 'Beitrag lesen →'; t.appendChild(s);
+    a.appendChild(bild); a.appendChild(t); box.appendChild(a);
+  });
+  if (b.length) document.getElementById('blog-kopf').hidden = false;
 })();
 
 // Produktkarten aus produkte.js (erzeugt aus Shopify: Titel, Bild, Link — kein Preis).

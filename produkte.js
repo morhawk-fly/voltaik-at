@@ -1,7 +1,7 @@
 // Erzeugt von python-scripts/voltaik_at_produkte.py (Ops-Repo) — nicht von Hand ändern.
-// Stand 2026-10-07: 67 Produkte, Shop 544 Produkte, 38 Marken.
+// Stand 2026-10-08: 67 Produkte, Shop 590 Produkte, 39 Marken.
 window.SHOP_PRODUKTZAHL = 500;
-window.SHOP_MARKENZAHL = 38;
+window.SHOP_MARKENZAHL = 39;
 window.SHOP_BEWERTUNGEN = 0;
 window.SHOP_PAKETE = [
  {
@@ -27,6 +27,22 @@ window.SHOP_PAKETE = [
  {
   "titel": "Pylontech Komplettpaket",
   "link": "https://voltaik.shop/products/pylontech-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Deye Komplettpaket mit SE-F12-Speicher",
+  "link": "https://voltaik.shop/products/deye-komplettpaket-se-f12?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "FoxESS Komplettpaket",
+  "link": "https://voltaik.shop/products/foxess-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "GoodWe Komplettpaket",
+  "link": "https://voltaik.shop/products/goodwe-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
+ },
+ {
+  "titel": "Haier Komplettpaket",
+  "link": "https://voltaik.shop/products/haier-komplettpaket?utm_source=voltaik.at&utm_medium=referral&utm_campaign=grossprojekte"
  }
 ];
 window.PRODUKTE = [
